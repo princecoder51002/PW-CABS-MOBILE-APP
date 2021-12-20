@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 const RideOptionsCard = () => {
     return (
         <View>
-            <Text></Text>
+            <Text>Han v ki hal aw!!</Text>
         </View>
     )
 }
