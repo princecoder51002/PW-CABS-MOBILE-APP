@@ -7,6 +7,7 @@ import { GOOGLE_MAPS_APIKEY } from "@env";
 import { useDispatch } from "react-redux";
 import { setDestination, setOrigin } from "../slices/navSlice";
 
+
 const HomeScreen = () => {
   const dispatch = useDispatch();
 
@@ -40,12 +41,10 @@ const HomeScreen = () => {
           returnKeyType={"search"}
           fetchDetails={true}
           onPress={(data, details = null) => {
-            dispatch(
-              setOrigin({
-                location: details.geometry.location,
-                description: data.description,
-              })
-            );
+            dispatch(setOrigin({
+              location: details.geometry.location,
+              description: data.description,
+            }))
 
             dispatch(setDestination(null));
           }}
@@ -54,6 +53,8 @@ const HomeScreen = () => {
           placeholder="Where From?"
           debounce={400}
         />
+
+      
 
         <NavOptions />
       </View>
