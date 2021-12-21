@@ -3,14 +3,16 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { GOOGLE_MAPS_APIKEY } from "@env";
-import { useDispatch } from 'react-redux';
-import { setDestination } from '../slices/navSlice';
+import { useDispatch} from 'react-redux';
+import { selectDestination, setDestination } from '../slices/navSlice';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
 const NavigateCard = () => {
 
     const dispatch = useDispatch();
     const navigation = useNavigation();
+    const destination = useSelector(selectDestination)
 
     return (
         <SafeAreaView style={tw`bg-white flex-1`}>
@@ -32,9 +34,9 @@ const NavigateCard = () => {
                                  location: details.geometry.location,
                                  description: data.description,
                              }));
-
                              navigation.navigate("RideOptionsCard");
                          }}
+                         returnKeyType={"search"}
                       />
                </View>
             </View>
