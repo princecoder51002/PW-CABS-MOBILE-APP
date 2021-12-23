@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, SafeAreaView, FlatList, Image } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, FlatList, Image, _ScrollView } from 'react-native'
 import { useSelector } from 'react-redux'
 import { selectDestination } from '../slices/navSlice'
 import tw from 'tailwind-react-native-classnames'
@@ -37,6 +37,7 @@ const RideOptionsCard = () => {
 
     return (
         <SafeAreaView style={tw`bg-white flex-grow`}>
+            
             <View>
                 <TouchableOpacity style={tw`top-2 right-44 rounded-full`} onPress={() =>  navigation.navigate("NavigateCard")}>
                     <Icon name="chevron-left" type="fontawesome" />
@@ -45,6 +46,8 @@ const RideOptionsCard = () => {
               Select a Ride
           </Text>
             </View>
+
+            
 
           <FlatList
             data={data}
@@ -71,8 +74,8 @@ const RideOptionsCard = () => {
             )}
           />
  
-          <View>
-             <TouchableOpacity style={tw`bg-black py-3 m-3 ${!selected && "bg-gray-300"}`} disabled={!selected}>
+          <View style={tw`px-2`}>
+             <TouchableOpacity style={tw`bg-black py-2 m-3 ${!selected && "bg-gray-300"}`} disabled={!selected}>
                  <Text style={tw`text-center text-white text-xl`}>Choose {selected?.title} </Text>
              </TouchableOpacity>
          </View>

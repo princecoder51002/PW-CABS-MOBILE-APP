@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { Icon } from 'react-native-elements';
@@ -9,25 +10,29 @@ const NavFavourites = () => {
     const data = [
         {
             id:"123",
-            icon: "home",
-            location: "Home",
-            destination: "Code Street, London, UK",
+            icon: "person-circle-outline",
+            location: "Developed By",
+            destination: "Prince Wadhwa",
+            screen: "Developed"
         },
 
         {
             id: "456",
-            icon: "briefcase",
-            location: "Work",
-            destination: "London Eye, London, UK",
+            icon: "information-circle-outline",
+            location: "About Us",
+            destination: "Know More About PW Cabs",
+            screen: "About"
         },
     ]
+
+    const navigation = useNavigation();
 
     return (
         <FlatList
          data={data} 
          keyExtractor={(item) => item.id} 
-         renderItem={({item: { location, destination, icon }}) => (
-            <TouchableOpacity style={tw`flex-row items-center p-5`}>
+         renderItem={({item: { location, destination, icon, screen }}) => (
+            <TouchableOpacity style={tw`flex-row items-center p-5`} onPress={() => navigation.navigate(screen) }>
 
                <Icon 
                  name={icon}

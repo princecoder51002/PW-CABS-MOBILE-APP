@@ -11,7 +11,6 @@ const MapScreen = () => {
     const Stack = createStackNavigator();
     return (
         <View>
-            <Text>i m prince</Text>
 
             <View style={tw`h-1/2`}>
                <Map />
