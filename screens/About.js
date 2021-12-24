@@ -6,7 +6,7 @@ const About = () => {
   return (
     <View>
       <View>
-        <Image source={require("../assets/logo.jpg")} style={styles.mypic} />
+        <Image source={require("../assets/logo.png")} style={styles.mypic} />
       </View>
 
       <Text style={{fontWeight: "bold", marginTop: 20, marginLeft: 5}}>

@@ -4,7 +4,7 @@
     "slug": "PWCabs2",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo.png",
+    "icon": "./assets/logo1.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -28,6 +28,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "A Taxi Hailing App",
+    "githubUrl": "https://github.com/princecoder51002/Uber-2.0"
   }
 }
