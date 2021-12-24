@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, View, SafeAreaView, FlatList, Image, _ScrollView } from 'react-native'
 import { useSelector } from 'react-redux'
-import { selectDestination } from '../slices/navSlice'
+import { selectDestination, selectTravelTimeDestination } from '../slices/navSlice'
 import tw from 'tailwind-react-native-classnames'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import { Icon } from 'react-native-elements'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
+import 'intl';
 
 const RideOptionsCard = () => {
 
     const navigation = useNavigation();
     const [selected, setSelected] = useState(null);
+    const travelTimeInformation =  useSelector(selectTravelTimeDestination);
+
+    const SURGE_CHARGE_RATE = 1.5;
 
     const data = [
         {
@@ -43,7 +47,7 @@ const RideOptionsCard = () => {
                     <Icon name="chevron-left" type="fontawesome" />
                 </TouchableOpacity>
             <Text style={tw`text-center text-xl`}>
-              Select a Ride
+              Select a Ride - {travelTimeInformation?.distance.text}
           </Text>
             </View>
 
@@ -63,10 +67,15 @@ const RideOptionsCard = () => {
 
                    <View style={tw`-ml-6`}>
                        <Text style={tw`text-xl font-semibold`}>{title}</Text>
-                       <Text>Travel time...</Text>
+                       <Text>{travelTimeInformation?.duration.text} Travel Time</Text>
                    </View>
 
-                   <Text style={tw`text-lg`}>675 Rs</Text>
+                   <Text style={tw`text-lg`}>
+
+
+                       {travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier} Rs
+
+                   </Text>
 
                </TouchableOpacity>
 
