@@ -60,10 +60,6 @@ const HomeScreen = () => {
        
 
         <NavOptions />
-        <Stack.Navigator>
-          <Stack.Screen name="Developed" component={Developed} options={{ headerShown: false, }}/>
-          <Stack.Screen name="About" component={About} options={{ headerShown: false, }}/>
-        </Stack.Navigator>
         <NavFavourites />
         
       </View>

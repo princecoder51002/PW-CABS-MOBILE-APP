@@ -9,6 +9,8 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MapScreen from "./screens/MapScreen";
+import Developed from './screens/Developed';
+import About from './screens/About';
 
 
 export default function App() {
@@ -19,10 +21,11 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
       <SafeAreaProvider>
-        
         <Stack.Navigator>
           <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false, }}/>
           <Stack.Screen name="MapScreen" component={MapScreen} options={{ headerShown: false, }}/>
+          <Stack.Screen name="Developed" component={Developed} options={{ headerShown: false, }}/>
+          <Stack.Screen name="About" component={About} options={{ headerShown: false, }}/>
         </Stack.Navigator>
         
       </SafeAreaProvider>
